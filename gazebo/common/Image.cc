@@ -97,7 +97,7 @@ int Image::Load(const std::string &_filename)
     return 0;
   }
 
-  gzerr << "Unable to open image file[" << this->fullName
+  gzerr << "Unable to open image file[" << _filename
         << "], check your GAZEBO_RESOURCE_PATH settings.\n";
   return -1;
 }
