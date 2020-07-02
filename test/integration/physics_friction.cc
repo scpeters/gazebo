@@ -550,13 +550,6 @@ void PhysicsFrictionTest::SphereSlip(const std::string &_physicsEngine)
           << std::endl;
     return;
   }
-  if (_physicsEngine == "dart")
-  {
-    gzerr << "Aborting test since there's an issue with dart's friction"
-          << " parameters (#1000)"
-          << std::endl;
-    return;
-  }
 
   // Load an empty world
   Load("worlds/friction_spheres.world", true, _physicsEngine);
@@ -727,16 +720,7 @@ TEST_P(PhysicsFrictionTest, DirectionNaN)
 /////////////////////////////////////////////////
 TEST_P(PhysicsFrictionTest, SphereSlip)
 {
-  if (std::string("ode").compare(GetParam()) == 0)
-  {
-    SphereSlip(GetParam());
-  }
-  else
-  {
-    gzerr << "Skipping test for physics engine "
-          << GetParam()
-          << std::endl;
-  }
+  SphereSlip(GetParam());
 }
 
 INSTANTIATE_TEST_CASE_P(PhysicsEngines, PhysicsFrictionTest,

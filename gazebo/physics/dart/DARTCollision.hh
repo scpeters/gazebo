@@ -94,6 +94,12 @@ namespace gazebo
       /// \return Dynamically casted pointer to DARTSurfaceParams.
       public: DARTSurfaceParamsPtr DARTSurface() const;
 
+      // Set the slip compliance in the first friction direction.
+      public: void SetSlip1(double _slip);
+
+      // Set the slip compliance in the second friction direction.
+      public: void SetSlip2(double _slip);
+
       /// \internal
       /// \brief Pointer to private data
       private: DARTCollisionPrivate *dataPtr;
