@@ -521,7 +521,7 @@ TEST_F(WheelSlipTest, TriballDrift)
 // The actual slip should match the predicted value.
 TEST_F(WheelSlipTest, TricyclesUphill)
 {
-  Load("worlds/trisphere_cycle_wheel_slip.world", true);
+  Load("worlds/trisphere_cycle_wheel_slip.world", true, "dart");
 
   physics::WorldPtr world = physics::get_world("default");
   ASSERT_NE(world, nullptr);
