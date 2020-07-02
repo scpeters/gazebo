@@ -3,6 +3,11 @@
 <sdf version="1.6">
   <world name="default">
     <gravity>-2 0 -9.8</gravity>
+    <physics type="ode">
+      <dart>
+        <collision_detector>bullet</collision_detector>
+      </dart>
+    </physics>
 
     <include>
       <uri>model://ground_plane</uri>
