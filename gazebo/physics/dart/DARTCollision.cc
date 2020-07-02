@@ -96,6 +96,8 @@ void DARTCollision::Init()
     aspect->setSecondaryFrictionCoeff(friction->MuSecondary());
     aspect->setFirstFrictionDirection(
         DARTTypes::ConvVec3(friction->direction1));
+    aspect->setSlipCompliance(surf->Slip1());
+    aspect->setSecondarySlipCompliance(surf->Slip2());
 #endif
   }
 }
@@ -270,4 +272,30 @@ dart::dynamics::ShapeNodePtr DARTCollision::DARTCollisionShapeNode() const
 DARTSurfaceParamsPtr DARTCollision::DARTSurface() const
 {
   return boost::dynamic_pointer_cast<DARTSurfaceParams>(this->surface);
+}
+
+/////////////////////////////////////////////////
+void DARTCollision::SetSlip1(double _slip)
+{
+  auto surf = this->DARTSurface();
+  GZ_ASSERT(surf, "Surface pointer is invalid");
+  auto aspect = this->dataPtr->dtCollisionShape->getDynamicsAspect();
+  GZ_ASSERT(aspect, "DynamicsAspect pointer is invalid");
+#if DART_MAJOR_MINOR_VERSION_AT_LEAST(6, 10)
+  aspect->setSlipCompliance(_slip);
+#endif
+  surf->SetSlip1(_slip);
+}
+
+/////////////////////////////////////////////////
+void DARTCollision::SetSlip2(double _slip)
+{
+  auto surf = this->DARTSurface();
+  GZ_ASSERT(surf, "Surface pointer is invalid");
+  auto aspect = this->dataPtr->dtCollisionShape->getDynamicsAspect();
+  GZ_ASSERT(aspect, "DynamicsAspect pointer is invalid");
+#if DART_MAJOR_MINOR_VERSION_AT_LEAST(6, 10)
+  aspect->setSecondarySlipCompliance(_slip);
+#endif
+  surf->SetSlip2(_slip);
 }
