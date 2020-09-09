@@ -37,83 +37,83 @@
       <static>true</static>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_jagged_01</name>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_jagged_01</name>
       <pose>0.75 -0.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_jagged_02</name>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_jagged_02</name>
       <pose>1.75 -1.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_jagged_03</name>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_jagged_03</name>
       <pose>2.75 -2.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_y1</name>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_smooth_y1</name>
       <pose>0.75 0.65 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_y2</name>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_smooth_y2</name>
       <pose>1.75 1.65 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_y3</name>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_smooth_y3</name>
       <pose>2.75 2.65 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_01</name>
-      <pose>0.75 0.75 35  0 0 0</pose>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_smooth_01</name>
+      <pose>0.75 0.75 35  0 0 0.785</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_02</name>
-      <pose>1.75 1.75 35  0 0 0</pose>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_smooth_02</name>
+      <pose>1.75 1.75 35  0 0 0.785</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_03</name>
-      <pose>2.75 2.75 35  0 0 0</pose>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_smooth_03</name>
+      <pose>2.75 2.75 35  0 0 0.785</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_x1</name>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_smooth_x1</name>
       <pose>0.65 0.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_x2</name>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_smooth_x2</name>
       <pose>1.65 1.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_x3</name>
+      <uri>model://wood_cube_7_5cm</uri>
+      <name>cube_smooth_x3</name>
       <pose>2.65 2.75 35  0 0 0</pose>
     </include>
-    <model name="unit_sphere_jagged_01">
-      <pose>-0.75 0.75 35  0 0 0</pose>
+    <model name="unit_cube_jagged_01">
+      <pose>-1.85 1.85 35  0 0 0.785</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
@@ -122,24 +122,24 @@
         </visual>
       </link>
     </model>
-    <model name="unit_sphere_jagged_02">
-      <pose>-1.5 1.5 34  0 0 0</pose>
+    <model name="unit_cube_jagged_02">
+      <pose>-2.5 2.5 34  0 0 0.785</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
@@ -148,24 +148,24 @@
         </visual>
       </link>
     </model>
-    <model name="unit_sphere_smooth">
-      <pose>-0.5 -0.5 35  0 0 0</pose>
+    <model name="unit_cube_smooth">
+      <pose>-0.5 -0.5 35  0 0 0.785</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
@@ -174,24 +174,24 @@
         </visual>
       </link>
     </model>
-    <model name="unit_sphere_smooth_y">
-      <pose>-1.5 -1.9 35  0 0 0</pose>
+    <model name="unit_cube_smooth_y">
+      <pose>-1.5 -1.9 35  0 0 0.785</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
@@ -200,24 +200,24 @@
         </visual>
       </link>
     </model>
-    <model name="unit_sphere_smooth_x">
-      <pose>-2.9 -2.5 35  0 0 0</pose>
+    <model name="unit_cube_smooth_x">
+      <pose>-2.9 -2.5 35  0 0 0.785</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
-              <radius>0.5</radius>
-            </sphere>
+            <box>
+              <size>0.8 0.8 0.8</size>
+            </box>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
