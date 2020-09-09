@@ -37,63 +37,63 @@
       <static>true</static>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_jagged_01</name>
+      <uri>model://bowl</uri>
+      <name>bowl_jagged_01</name>
       <pose>0.75 -0.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_jagged_02</name>
+      <uri>model://bowl</uri>
+      <name>bowl_jagged_02</name>
       <pose>1.75 -1.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_jagged_03</name>
+      <uri>model://bowl</uri>
+      <name>bowl_jagged_03</name>
       <pose>2.75 -2.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_y1</name>
+      <uri>model://bowl</uri>
+      <name>bowl_smooth_y1</name>
       <pose>0.75 0.65 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_y2</name>
+      <uri>model://bowl</uri>
+      <name>bowl_smooth_y2</name>
       <pose>1.75 1.65 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_y3</name>
+      <uri>model://bowl</uri>
+      <name>bowl_smooth_y3</name>
       <pose>2.75 2.65 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_01</name>
+      <uri>model://bowl</uri>
+      <name>bowl_smooth_01</name>
       <pose>0.75 0.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_02</name>
+      <uri>model://bowl</uri>
+      <name>bowl_smooth_02</name>
       <pose>1.75 1.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_03</name>
+      <uri>model://bowl</uri>
+      <name>bowl_smooth_03</name>
       <pose>2.75 2.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_x1</name>
+      <uri>model://bowl</uri>
+      <name>bowl_smooth_x1</name>
       <pose>0.65 0.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_x2</name>
+      <uri>model://bowl</uri>
+      <name>bowl_smooth_x2</name>
       <pose>1.65 1.75 35  0 0 0</pose>
     </include>
     <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_x3</name>
+      <uri>model://bowl</uri>
+      <name>bowl_smooth_x3</name>
       <pose>2.65 2.75 35  0 0 0</pose>
     </include>
     <model name="unit_sphere_jagged_01">
@@ -104,16 +104,18 @@
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
@@ -130,16 +132,18 @@
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
@@ -156,16 +160,18 @@
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
@@ -182,16 +188,18 @@
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
@@ -208,16 +216,18 @@
         </inertial>
         <collision name="collision">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
-            <sphere>
+            <cylinder>
               <radius>0.5</radius>
-            </sphere>
+              <length>1.0</length>
+            </cylinder>
           </geometry>
           <material>
             <ambient>1 0 0 1</ambient>
