@@ -1,0 +1,238 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <physics type="ode">
+      <dart>
+        <collision_detector>bullet</collision_detector>
+      </dart>
+    </physics>
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+      <pose>0 0 50  0 0 0</pose>
+    </include>
+    <!-- CPU LIDAR sensors to show how physics represents the heightmap -->
+    <include>
+      <uri>model://hokuyo</uri>
+      <name>hokuyo_corner_jagged_edge</name>
+      <pose>28.066 -28.000 7.148  1.5708 0 2.356</pose>
+      <static>true</static>
+    </include>
+    <include>
+      <uri>model://hokuyo</uri>
+      <name>hokuyo_corner_smooth_edge</name>
+      <pose>-28.066 -28.000 7.148  1.5708 0 0.785</pose>
+      <static>true</static>
+    </include>
+    <include>
+      <uri>model://hokuyo</uri>
+      <name>hokuyo_top_jagged</name>
+      <pose>0 0 35  1.5708 1.5708 2.356</pose>
+      <static>true</static>
+    </include>
+    <include>
+      <uri>model://hokuyo</uri>
+      <name>hokuyo_top_smooth</name>
+      <pose>0 0.061 35  1.5708 1.5708 0.785</pose>
+      <static>true</static>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_jagged_01</name>
+      <pose>0.75 -0.75 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_jagged_02</name>
+      <pose>1.75 -1.75 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_jagged_03</name>
+      <pose>2.75 -2.75 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_y1</name>
+      <pose>0.75 0.65 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_y2</name>
+      <pose>1.75 1.65 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_y3</name>
+      <pose>2.75 2.65 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_x1</name>
+      <pose>0.65 0.75 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_x2</name>
+      <pose>1.65 1.75 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_x3</name>
+      <pose>2.65 2.75 35  0 0 0</pose>
+    </include>
+    <model name="unit_sphere_jagged_01">
+      <pose>-0.75 0.75 35  0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>12.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="unit_sphere_jagged_02">
+      <pose>-1.5 1.5 34  0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>12.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="unit_sphere_smooth_y">
+      <pose>-1.5 -1.9 35  0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>12.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="unit_sphere_smooth_x">
+      <pose>-2.9 -2.5 35  0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>12.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="heightmap">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <heightmap>
+              <uri>file://media/materials/textures/heightmap_pyramid_65x65.png</uri>
+              <size>65 65 33</size>
+              <pos>0 0 0</pos>
+              <sampling>1</sampling>
+            </heightmap>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <heightmap>
+              <use_terrain_paging>false</use_terrain_paging>
+              <texture>
+                <diffuse>file://media/materials/textures/dirt_diffusespecular.png</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture>
+              <texture>
+                <diffuse>file://media/materials/textures/grass_diffusespecular.png</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture>
+              <texture>
+                <diffuse>file://media/materials/textures/fungus_diffusespecular.png</diffuse>
+                <normal>file://media/materials/textures/flat_normal.png</normal>
+                <size>1</size>
+              </texture>
+              <blend>
+                <min_height>2</min_height>
+                <fade_dist>5</fade_dist>
+              </blend>
+              <blend>
+                <min_height>4</min_height>
+                <fade_dist>5</fade_dist>
+              </blend>
+              <uri>file://media/materials/textures/heightmap_pyramid_65x65.png</uri>
+              <size>65 65 33</size>
+              <pos>0 0 0</pos>
+              <sampling>1</sampling>
+            </heightmap>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
