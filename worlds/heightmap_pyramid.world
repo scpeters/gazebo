@@ -39,65 +39,65 @@
     <include>
       <uri>model://bowl</uri>
       <name>bowl_jagged_01</name>
-      <pose>0.75 -0.75 35  0 0 0</pose>
+      <pose>0.75 -0.75 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_jagged_02</name>
-      <pose>1.75 -1.75 35  0 0 0</pose>
+      <pose>1.75 -1.75 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_jagged_03</name>
-      <pose>2.75 -2.75 35  0 0 0</pose>
+      <pose>2.75 -2.75 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_smooth_y1</name>
-      <pose>0.75 0.65 35  0 0 0</pose>
+      <pose>0.75 0.65 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_smooth_y2</name>
-      <pose>1.75 1.65 35  0 0 0</pose>
+      <pose>1.75 1.65 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_smooth_y3</name>
-      <pose>2.75 2.65 35  0 0 0</pose>
+      <pose>2.75 2.65 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_smooth_01</name>
-      <pose>0.75 0.75 35  0 0 0</pose>
+      <pose>0.75 0.75 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_smooth_02</name>
-      <pose>1.75 1.75 35  0 0 0</pose>
+      <pose>1.75 1.75 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_smooth_03</name>
-      <pose>2.75 2.75 35  0 0 0</pose>
+      <pose>2.75 2.75 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_smooth_x1</name>
-      <pose>0.65 0.75 35  0 0 0</pose>
+      <pose>0.65 0.75 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_smooth_x2</name>
-      <pose>1.65 1.75 35  0 0 0</pose>
+      <pose>1.65 1.75 35 0 1.5708 0</pose>
     </include>
     <include>
       <uri>model://bowl</uri>
       <name>bowl_smooth_x3</name>
-      <pose>2.65 2.75 35  0 0 0</pose>
+      <pose>2.65 2.75 35 0 1.5708 0</pose>
     </include>
     <model name="unit_sphere_jagged_01">
-      <pose>-0.75 0.75 35  0 0 0</pose>
+      <pose>-0.75 0.75 35 -0.785 1.5708 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
@@ -125,7 +125,7 @@
       </link>
     </model>
     <model name="unit_sphere_jagged_02">
-      <pose>-1.5 1.5 34  0 0 0</pose>
+      <pose>-1.5 1.5 34 -0.785 1.5708 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
@@ -153,7 +153,7 @@
       </link>
     </model>
     <model name="unit_sphere_smooth">
-      <pose>-0.5 -0.5 35  0 0 0</pose>
+      <pose>-0.5 -0.5 35 0.785 1.5708 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
@@ -181,7 +181,7 @@
       </link>
     </model>
     <model name="unit_sphere_smooth_y">
-      <pose>-1.5 -1.9 35  0 0 0</pose>
+      <pose>-1.5 -1.9 35 0.785 1.5708 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
@@ -209,7 +209,7 @@
       </link>
     </model>
     <model name="unit_sphere_smooth_x">
-      <pose>-2.9 -2.5 35  0 0 0</pose>
+      <pose>-2.9 -2.5 35 0.785 1.5708 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
