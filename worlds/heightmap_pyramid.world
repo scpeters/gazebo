@@ -51,53 +51,9 @@
       <name>ball_jagged_03</name>
       <pose>2.75 -2.75 35  0 0 0</pose>
     </include>
-    <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_y1</name>
-      <pose>0.75 0.65 35  0 0 0</pose>
-    </include>
-    <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_y2</name>
-      <pose>1.75 1.65 35  0 0 0</pose>
-    </include>
-    <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_y3</name>
-      <pose>2.75 2.65 35  0 0 0</pose>
-    </include>
-    <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_01</name>
-      <pose>0.75 0.75 35  0 0 0</pose>
-    </include>
-    <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_02</name>
-      <pose>1.75 1.75 35  0 0 0</pose>
-    </include>
-    <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_03</name>
-      <pose>2.75 2.75 35  0 0 0</pose>
-    </include>
-    <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_x1</name>
-      <pose>0.65 0.75 35  0 0 0</pose>
-    </include>
-    <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_x2</name>
-      <pose>1.65 1.75 35  0 0 0</pose>
-    </include>
-    <include>
-      <uri>model://cricket_ball</uri>
-      <name>ball_smooth_x3</name>
-      <pose>2.65 2.75 35  0 0 0</pose>
-    </include>
-    <model name="unit_sphere_jagged_01">
-      <pose>-0.75 0.75 35  0 0 0</pose>
+
+    <model name="unit_medium_sphere_smooth_falls_through">
+      <pose>4 4 32  0 0 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
@@ -118,12 +74,111 @@
           <material>
             <ambient>1 0 0 1</ambient>
             <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_y1</name>
+      <pose>1 0.9 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_y2</name>
+      <pose>2 1.9 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_y3</name>
+      <pose>3 2.9 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_falls_through_01</name>
+      <pose>1 1 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_falls_through_02</name>
+      <pose>2 2 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_falls_through_03</name>
+      <pose>3 3 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_x1</name>
+      <pose>0.9 1 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_x2</name>
+      <pose>1.9 2 35  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_x3</name>
+      <pose>2.9 3 35  0 0 0</pose>
+    </include>
+
+    <model name="unit_sphere_jagged_01">
+      <pose>-1.9 1.9 34  0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>12.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.8</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.8</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0 0.7 0 1</ambient>
+            <diffuse>0 0.7 0 1</diffuse>
           </material>
         </visual>
       </link>
     </model>
     <model name="unit_sphere_jagged_02">
-      <pose>-1.5 1.5 34  0 0 0</pose>
+      <pose>-3.5 3.5 32.3  0 0 0</pose>
+      <link name="link">
+        <inertial>
+          <mass>12.0</mass>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.8</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.8</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0 0.7 0 1</ambient>
+            <diffuse>0 0.7 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="unit_medium_sphere_jagged_sinks_in_pops_out">
+      <pose>3.5 -3.5 32  0 0 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
@@ -148,8 +203,38 @@
         </visual>
       </link>
     </model>
-    <model name="unit_sphere_smooth">
-      <pose>-0.5 -0.5 35  0 0 0</pose>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_under_x1</name>
+      <pose>-1.95 -1.85 33  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_under_x2</name>
+      <pose>-1.95 -1.75 33  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_under_x3</name>
+      <pose>-1.95 -1.65 33  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_under_y1</name>
+      <pose>-1.85 -1.95 33  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_under_y2</name>
+      <pose>-1.75 -1.95 33  0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cricket_ball</uri>
+      <name>ball_smooth_under_y3</name>
+      <pose>-1.65 -1.95 33  0 0 0</pose>
+    </include>
+    <model name="unit_sphere_smooth_weird_spinning">
+      <pose>-2 -2 35  0 0 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
@@ -157,25 +242,27 @@
         <collision name="collision">
           <geometry>
             <sphere>
-              <radius>0.5</radius>
+              <radius>0.8</radius>
             </sphere>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <sphere>
-              <radius>0.5</radius>
+              <radius>0.8</radius>
             </sphere>
           </geometry>
           <material>
-            <ambient>1 0 0 1</ambient>
-            <diffuse>1 0 0 1</diffuse>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
           </material>
         </visual>
       </link>
     </model>
     <model name="unit_sphere_smooth_y">
-      <pose>-1.5 -1.9 35  0 0 0</pose>
+      <pose>-3.5 -4.1 35  0 0 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
@@ -183,25 +270,25 @@
         <collision name="collision">
           <geometry>
             <sphere>
-              <radius>0.5</radius>
+              <radius>0.8</radius>
             </sphere>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <sphere>
-              <radius>0.5</radius>
+              <radius>0.8</radius>
             </sphere>
           </geometry>
           <material>
-            <ambient>1 0 0 1</ambient>
-            <diffuse>1 0 0 1</diffuse>
+            <ambient>0 0.7 0 1</ambient>
+            <diffuse>0 0.7 0 1</diffuse>
           </material>
         </visual>
       </link>
     </model>
     <model name="unit_sphere_smooth_x">
-      <pose>-2.9 -2.5 35  0 0 0</pose>
+      <pose>-6.1 -5.5 35  0 0 0</pose>
       <link name="link">
         <inertial>
           <mass>12.0</mass>
@@ -209,19 +296,19 @@
         <collision name="collision">
           <geometry>
             <sphere>
-              <radius>0.5</radius>
+              <radius>0.8</radius>
             </sphere>
           </geometry>
         </collision>
         <visual name="visual">
           <geometry>
             <sphere>
-              <radius>0.5</radius>
+              <radius>0.8</radius>
             </sphere>
           </geometry>
           <material>
-            <ambient>1 0 0 1</ambient>
-            <diffuse>1 0 0 1</diffuse>
+            <ambient>0 0.7 0 1</ambient>
+            <diffuse>0 0.7 0 1</diffuse>
           </material>
         </visual>
       </link>
