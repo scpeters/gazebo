@@ -507,6 +507,14 @@ void PhysicsFrictionTest::DirectionNaN(const std::string &_physicsEngine)
   ASSERT_TRUE(physics != NULL);
   EXPECT_EQ(physics->GetType(), _physicsEngine);
 
+#ifdef HAVE_DART
+  // Use bullet collision detector with DART
+  if (_physicsEngine == "dart")
+  {
+    physics->SetParam("collision_detector", std::string("bullet"));
+  }
+#endif
+
   // set the gravity vector
   // small positive y component
   ignition::math::Vector3d g(0.0, 1.5, -1.0);
