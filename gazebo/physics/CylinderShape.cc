@@ -14,6 +14,7 @@
  * limitations under the License.
  *
 */
+#include <cmath>
 #include "gazebo/physics/CylinderShape.hh"
 
 using namespace gazebo;
@@ -62,8 +63,8 @@ void CylinderShape::SetLength(double _length)
 //////////////////////////////////////////////////
 void CylinderShape::SetSize(double _radius, double _length)
 {
-  this->sdf->GetElement("radius")->Set(_radius);
-  this->sdf->GetElement("length")->Set(_length);
+  this->sdf->GetElement("radius")->Set(std::fabs(_radius));
+  this->sdf->GetElement("length")->Set(std::fabs(_length));
 }
 
 //////////////////////////////////////////////////

@@ -17,6 +17,7 @@
 #ifndef _ODECYLINDERSHAPE_HH_
 #define _ODECYLINDERSHAPE_HH_
 
+#include <cmath>
 #include "gazebo/physics/CylinderShape.hh"
 #include "gazebo/physics/ode/ODEPhysics.hh"
 #include "gazebo/util/system.hh"
@@ -47,10 +48,20 @@ namespace gazebo
         oParent =
           boost::dynamic_pointer_cast<ODECollision>(this->collisionParent);
 
-        if (oParent->GetCollisionId() == nullptr)
-          oParent->SetCollision(dCreateCylinder(0, _radius, _length), true);
+        if (_radius >= 0)
+        {
+          if (oParent->GetCollisionId() == nullptr)
+            oParent->SetCollision(dCreateCylinder(0, _radius, _length), true);
+          else
+            dGeomCylinderSetParams(oParent->GetCollisionId(), _radius, _length);
+        }
         else
-          dGeomCylinderSetParams(oParent->GetCollisionId(), _radius, _length);
+        {
+          if (oParent->GetCollisionId() == nullptr)
+            oParent->SetCollision(dCreateCapsule(0, std::fabs(_radius), _length), true);
+          else
+            dGeomCapsuleSetParams(oParent->GetCollisionId(), std::fabs(_radius), _length);
+        }
       }
     };
     /// \}
