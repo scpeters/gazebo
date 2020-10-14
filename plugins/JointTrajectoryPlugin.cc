@@ -55,7 +55,9 @@ void JointTrajectoryPlugin::UpdateStates(const common::UpdateInfo & /*_info*/)
 
   auto controller = this->model->GetJointController();
 
-  const double velocityTarget = 0.5 * (1 + sin(0.5*cur_time.Double()));
+  const double sinusoid = sin(0.5 * cur_time.Double());
+  const double squareWave= sinusoid > 0 ? 1 : 0;
+  const double velocityTarget = 1.25 * squareWave;
 
   controller->SetVelocityTarget(this->model->GetName() + "::wheel_rear_left_spin", velocityTarget);
   controller->SetVelocityTarget(this->model->GetName() + "::wheel_rear_right_spin", velocityTarget);
