@@ -40,12 +40,6 @@ void JointTrajectoryPlugin::Load(physics::ModelPtr _parent,
   this->model = _parent;
   this->world = this->model->GetWorld();
 
-  // this->world->Physics()->SetGravity(ignition::math::Vector3(0,0,0));
-
-  for (physics::Joint_V::const_iterator j = this->model->GetJoints().begin();
-                        j != this->model->GetJoints().end(); ++j)
-    (*j)->SetPosition(0, 0);
-
   // New Mechanism for Updating every World Cycle
   // Listen to the update event. This event is broadcast every
   // simulation iteration.
@@ -55,55 +49,22 @@ void JointTrajectoryPlugin::Load(physics::ModelPtr _parent,
 }
 
 /////////////////////////////////////////////////
-// void JointTrajectoryPlugin::FixLink(physics::LinkPtr _link)
-// {
-//   this->joint = this->world->Physics()->CreateJoint("revolute",
-//       this->model);
-//
-//   this->joint->SetModel(this->model);
-//   auto pose = _link->GetWorldPose();
-//   // ignition::math::Pose  pose(ignition::math::Vector3d(0, 0, 0.2),
-//                       ignition::math::Quaterniond(1, 0, 0, 0));
-//   this->joint->Load(physics::LinkPtr(), _link, pose);
-//   this->joint->SetAxis(0, ignition::math::Vector3d(0, 0, 0));
-//   this->joint->SetUpperLimit(0, 0);
-//   this->joint->SetLowerLimit(0, 0);
-//   this->joint->SetAnchor(0, pose.pos);
-//   this->joint->Init();
-// }
-
-/////////////////////////////////////////////////
-// void JointTrajectoryPlugin::UnfixLink()
-// {
-//   this->joint.reset();
-// }
-
-/////////////////////////////////////////////////
 void JointTrajectoryPlugin::UpdateStates(const common::UpdateInfo & /*_info*/)
 {
   common::Time cur_time = this->world->SimTime();
 
-  // for (physics::Joint_V::const_iterator j = this->model->GetJoints().begin();
-  //                       j != this->model->GetJoints().end(); ++j)
-  //   gzerr << cur_time << " " << (*j)->GetScopedName() << "\n";
+  auto controller = this->model->GetJointController();
 
-  bool is_paused = this->world->IsPaused();
-  if (!is_paused) this->world->SetPaused(true);
+  const double velocityTarget = 0.5 * (1 + sin(0.5*cur_time.Double()));
 
-  std::map<std::string, double> joint_position_map;
-  joint_position_map["simple_arm_gripper::simple_arm::arm_shoulder_pan_joint"]
-    = cos(cur_time.Double());
-  joint_position_map["simple_arm_gripper::simple_arm::arm_elbow_pan_joint"]
-    = -cos(cur_time.Double());
-  joint_position_map["simple_arm_gripper::simple_arm::arm_wrist_lift_joint"]
-    = -0.35 + 0.45*cos(0.5*cur_time.Double());
-  joint_position_map["simple_arm_gripper::simple_arm::arm_wrist_roll_joint"]
-    = -2.9*cos(3.0*cur_time.Double());
+  controller->SetVelocityTarget(this->model->GetName() + "::wheel_rear_left_spin", velocityTarget);
+  controller->SetVelocityTarget(this->model->GetName() + "::wheel_rear_right_spin", velocityTarget);
 
-  this->model->SetJointPositions(joint_position_map);
-
-  // resume original pause-state
-  this->world->SetPaused(is_paused);
+  // auto velocities = controller->GetVelocities();
+  // for (auto mapIter : velocities)
+  // {
+  //   std::cerr << mapIter.first << ", " << mapIter.second << std::endl;
+  // }
 }
 
 GZ_REGISTER_MODEL_PLUGIN(JointTrajectoryPlugin)

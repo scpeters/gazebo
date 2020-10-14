@@ -50,6 +50,7 @@
           <target>2.15</target>
         </controller>
       </plugin>
+      <plugin name="joint_trajectory" filename="libJointTrajectoryPlugin.so"/>
     </include>
 
     <include>
@@ -91,6 +92,7 @@
           <target>2.15</target>
         </controller>
       </plugin>
+      <plugin name="joint_trajectory" filename="libJointTrajectoryPlugin.so"/>
     </include>
 
     <gui fullscreen='0'>
