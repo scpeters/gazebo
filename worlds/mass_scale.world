@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- to measure weight, we'll attach a large flat plate to the ground
+    with a fixed joint and add a force-torque sensor to the fixed joint.
+    this can be used to infer mass, given the gravitational acceleration. -->
+    <model name="mass_scale">
+      <link name="flat_plate">
+        <pose>0 0 0.04 0 0 0</pose>
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>1.33347</ixx>
+            <ixy>0.</ixy>
+            <ixz>0.</ixz>
+            <iyy>1.33347</iyy>
+            <iyz>0.</iyz>
+            <izz>2.66667</izz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>4 4 0.04</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>4 4 0.04</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="joint" type="fixed">
+        <parent>world</parent>
+        <child>flat_plate</child>
+        <sensor name="force_torque" type="force_torque">
+          <always_on>true</always_on>
+          <visualize>true</visualize>
+          <update_rate>100</update_rate>
+        </sensor>
+      </joint>
+    </model>
+  </world>
+</sdf>
