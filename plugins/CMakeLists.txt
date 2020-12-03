@@ -125,6 +125,7 @@ set (plugins_single_header
   SimpleTrackedVehiclePlugin
   SkidSteerDrivePlugin
   SonarPlugin
+  SpatialWheelSlipPlugin
   SphereAtlasDemoPlugin
   StaticMapPlugin
   TouchPlugin
@@ -236,6 +237,10 @@ endif()
 target_link_libraries(LedPlugin FlashLightPlugin)
 set_target_properties(
   LedPlugin PROPERTIES INSTALL_RPATH ${GAZEBO_PLUGIN_INSTALL_DIR})
+
+target_link_libraries(SpatialWheelSlipPlugin WheelSlipPlugin)
+set_target_properties(
+  SpatialWheelSlipPlugin PROPERTIES INSTALL_RPATH ${GAZEBO_PLUGIN_INSTALL_DIR})
 
 add_subdirectory(events)
 
