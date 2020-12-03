@@ -113,6 +113,9 @@ namespace gazebo
     // Documentation inherited
     public: virtual void Fini();
 
+    /// \brief Update the plugin. This is updated every iteration of simulation.
+    public: virtual void Update();
+
     /// \brief Get parent model.
     /// \return pointer to parent model.
     public: physics::ModelPtr GetParentModel() const;
@@ -129,9 +132,39 @@ namespace gazebo
     /// \param[in] _compliance unitless slip compliance to set.
     public: void SetSlipComplianceLateral(const double _compliance);
 
+    /// \brief Set unitless lateral slip compliance for a single wheel.
+    /// \param[in] _compliance unitless slip compliance to set.
+    /// \param[in] _linkName name of wheel link to update.
+    /// \return True if slip was set successfully for the specified wheel.
+    public: bool SetSlipComplianceLateral(const double _compliance,
+                                          const std::string &_linkName);
+
     /// \brief Set unitless longitudinal slip compliance for all wheels.
     /// \param[in] _compliance unitless slip compliance to set.
     public: void SetSlipComplianceLongitudinal(const double _compliance);
+
+    /// \brief Set unitless longitudinal slip compliance for a single wheel.
+    /// \param[in] _compliance unitless slip compliance to set.
+    /// \param[in] _linkName name of wheel link to update.
+    /// \return True if slip was set successfully for the specified wheel.
+    public: bool SetSlipComplianceLongitudinal(const double _compliance,
+                                               const std::string &_linkName);
+
+    /// \brief Set lateral friction for one or all wheels.
+    /// \param[in] _friction friction coefficient to set.
+    /// \param[in] _linkName name of wheel link to update or all wheels if an
+    /// empty "" is passed.
+    /// \return True if friction was set successfully for the specified wheel.
+    public: bool SetFrictionLateral(const double _friction,
+                                    const std::string &_linkName);
+
+    /// \brief Set longitudinal friction for one or all wheels.
+    /// \param[in] _friction friction coefficient to set.
+    /// \param[in] _linkName name of wheel link to update or all wheels if an
+    /// empty "" is passed.
+    /// \return True if friction was set successfully for the specified wheel.
+    public: bool SetFrictionLongitudinal(const double _friction,
+                                         const std::string &_linkName);
 
     /// \brief Transport callback for setting lateral slip compliance.
     /// \param[in] _msg Slip compliance encoded as string.
@@ -141,9 +174,22 @@ namespace gazebo
     /// \param[in] _msg Slip compliance encoded as string.
     private: void OnLongitudinalCompliance(ConstGzStringPtr &_msg);
 
-    /// \brief Update the plugin. This is updated every iteration of
-    /// simulation.
-    private: void Update();
+    /// \brief Private helper for setting lateral slip for one or all wheels.
+    /// \param[in] _compliance unitless slip compliance to set.
+    /// \param[in] _name name of wheel link to update or all wheels if an
+    /// empty "" is passed.
+    /// \return True if slip was set successfully.
+    private: bool HelpSetSlipComplianceLateral(const double _compliance,
+                                               const std::string &_name);
+
+    /// \brief Private helper for setting longitudinal slip for one or all
+    /// wheels.
+    /// \param[in] _compliance unitless slip compliance to set.
+    /// \param[in] _name name of wheel link to update or all wheels if an
+    /// empty "" is passed.
+    /// \return True if slip was set successfully.
+    private: bool HelpSetSlipComplianceLongitudinal(const double _compliance,
+                                                    const std::string &_name);
 
     /// \brief Private data pointer.
     private: std::unique_ptr<WheelSlipPluginPrivate> dataPtr;
