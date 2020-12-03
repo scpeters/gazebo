@@ -53,6 +53,9 @@ namespace gazebo
   {
     public: class LinkSurfaceParams
     {
+      /// \brief Name of the link.
+      public: std::string linkName;
+
       /// \brief Pointer to wheel spin joint.
       public: physics::JointWeakPtr joint;
 
@@ -70,6 +73,14 @@ namespace gazebo
       /// with a value of zero allowing no slip
       /// and larger values allowing increasing slip.
       public: double slipComplianceLongitudinal = 0;
+
+      /// \brief Wheel friction coefficient in lateral direction.
+      /// Negative values are ignored instead of being updated at each timestep.
+      public: double frictionLateral = -1;
+
+      /// \brief Wheel friction coefficient in longitudinal direction.
+      /// Negative values are ignored instead of being updated at each timestep.
+      public: double frictionLongitudinal = -1;
 
       /// \brief Wheel normal force estimate used to compute slip
       /// compliance for ODE, which takes units of 1/N.
@@ -181,6 +192,8 @@ void WheelSlipPlugin::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
     auto linkName = wheelElem->Get<std::string>("link_name");
 
     WheelSlipPluginPrivate::LinkSurfaceParams params;
+    params.linkName = linkName;
+
     if (wheelElem->HasElement("slip_compliance_lateral"))
     {
       params.slipComplianceLateral =
@@ -435,21 +448,95 @@ void WheelSlipPlugin::OnLongitudinalCompliance(ConstGzStringPtr &_msg)
 /////////////////////////////////////////////////
 void WheelSlipPlugin::SetSlipComplianceLateral(const double _compliance)
 {
+  this->HelpSetSlipComplianceLateral(_compliance, "");
+}
+
+/////////////////////////////////////////////////
+bool WheelSlipPlugin::SetSlipComplianceLateral(
+    const double _compliance, const std::string &_linkName)
+{
+  return this->HelpSetSlipComplianceLateral(_compliance, _linkName);
+}
+
+/////////////////////////////////////////////////
+bool WheelSlipPlugin::HelpSetSlipComplianceLateral(
+    const double _compliance, const std::string &_name)
+{
+  bool result = false;
   std::lock_guard<std::mutex> lock(this->dataPtr->mutex);
   for (auto &linkSurface : this->dataPtr->mapLinkSurfaceParams)
   {
-    linkSurface.second.slipComplianceLateral = _compliance;
+    if (_name.empty() || _name == linkSurface.second.linkName)
+    {
+      linkSurface.second.slipComplianceLateral = _compliance;
+      result = true;
+    }
   }
+  return result;
 }
 
 /////////////////////////////////////////////////
 void WheelSlipPlugin::SetSlipComplianceLongitudinal(const double _compliance)
 {
+  this->HelpSetSlipComplianceLongitudinal(_compliance, "");
+}
+
+/////////////////////////////////////////////////
+bool WheelSlipPlugin::SetSlipComplianceLongitudinal(
+    const double _compliance, const std::string &_linkName)
+{
+  return this->HelpSetSlipComplianceLongitudinal(_compliance, _linkName);
+}
+
+/////////////////////////////////////////////////
+bool WheelSlipPlugin::HelpSetSlipComplianceLongitudinal(
+    const double _compliance, const std::string &_name)
+{
+  bool result = false;
   std::lock_guard<std::mutex> lock(this->dataPtr->mutex);
   for (auto &linkSurface : this->dataPtr->mapLinkSurfaceParams)
   {
-    linkSurface.second.slipComplianceLongitudinal = _compliance;
+    if (_name.empty() || _name == linkSurface.second.linkName)
+    {
+      linkSurface.second.slipComplianceLongitudinal = _compliance;
+      result = true;
+    }
   }
+  return result;
+}
+
+/////////////////////////////////////////////////
+bool WheelSlipPlugin::SetFrictionLateral(
+    const double _friction, const std::string &_name)
+{
+  bool result = false;
+  std::lock_guard<std::mutex> lock(this->dataPtr->mutex);
+  for (auto &linkSurface : this->dataPtr->mapLinkSurfaceParams)
+  {
+    if (_name.empty() || _name == linkSurface.second.linkName)
+    {
+      linkSurface.second.frictionLateral = _friction;
+      result = true;
+    }
+  }
+  return result;
+}
+
+/////////////////////////////////////////////////
+bool WheelSlipPlugin::SetFrictionLongitudinal(
+    const double _friction, const std::string &_name)
+{
+  bool result = false;
+  std::lock_guard<std::mutex> lock(this->dataPtr->mutex);
+  for (auto &linkSurface : this->dataPtr->mapLinkSurfaceParams)
+  {
+    if (_name.empty() || _name == linkSurface.second.linkName)
+    {
+      linkSurface.second.frictionLongitudinal = _friction;
+      result = true;
+    }
+  }
+  return result;
 }
 
 /////////////////////////////////////////////////
@@ -503,6 +590,18 @@ void WheelSlipPlugin::Update()
       double speed = params.wheelRadius * std::abs(spinAngularVelocity);
       surface->slip1 = speed / force * params.slipComplianceLateral;
       surface->slip2 = speed / force * params.slipComplianceLongitudinal;
+      auto frictionPyramid = surface->FrictionPyramid();
+      if (frictionPyramid != nullptr)
+      {
+        if (params.frictionLateral >= 0)
+        {
+          frictionPyramid->SetMuPrimary(params.frictionLateral);
+        }
+        if (params.frictionLongitudinal >= 0)
+        {
+          frictionPyramid->SetMuSecondary(params.frictionLongitudinal);
+        }
+      }
     }
 
     // Try to publish slip data for this wheel
