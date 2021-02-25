@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+    <plugin name="initial_wall_time" filename="libinitial_wall_time.so"/>
+  </world>
+</sdf>
