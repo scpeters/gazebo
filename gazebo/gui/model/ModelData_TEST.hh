@@ -31,6 +31,9 @@ class ModelData_TEST : public QTestFixture
   /// \brief Tests scaling link
   private slots: void LinkScale();
 
+  /// \brief Tests for bounding collision shapes.
+  private slots: void BoundingCollision();
+
   /// \brief Tests for computing volume
   private slots: void LinkVolume();
 
@@ -63,9 +66,6 @@ class ModelData_TEST : public QTestFixture
 
   /// \brief Tests for computing moment of inertia for polyline.
   private slots: void PolylineMomentOfInertia();
-
-  /// \brief Tests for bounding collision shapes.
-  private slots: void BoundingCollision();
 };
 
 #endif

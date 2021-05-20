@@ -995,6 +995,9 @@ void ModelData_TEST::LinkVolume()
 
     delete link;
   }
+
+  mainWindow->close();
+  delete mainWindow;
 }
 
 /////////////////////////////////////////////////
