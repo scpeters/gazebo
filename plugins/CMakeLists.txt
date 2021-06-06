@@ -133,6 +133,7 @@ set (plugins_single_header
   SphereAtlasDemoPlugin
   StaticMapPlugin
   StopWorldPlugin
+  TerrainParameterPlugin
   TouchPlugin
   VariableGearboxPlugin
   VehiclePlugin
